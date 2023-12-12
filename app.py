@@ -63,7 +63,7 @@ def search_post():
     con = get_db()
     cur = con.cursor()
 
-    # SQLを実行：単語（in_word）および意味（in_mean）で検索する
+    # SQLを実行：単語（word）および意味（mean）で検索する
     sql = "SELECT * FROM items WHERE word LIKE ? AND mean LIKE ? ORDER BY id DESC LIMIT 10"
     rows = cur.execute(sql, ('%' + in_word + '%', '%' + in_mean + '%'))
     data = rows.fetchall()
