@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="jp">
+  <head>
+    <meta charset="UTF-8">
+    <title>検索結果表示</title>
+    <link rel="stylesheet" href="/static/markdown7.css" type="text/css" />
+  </head>
+  <body>
+    <h2>検索</h2>
+    <p>
+      <form action='/search'>
+        <label>
+          単語
+          <input type="text" name="in_word" />
+        </label>
+        <label>
+          意味
+          <input type="text" name="in_mean" />
+        </label>
+        <button type="submit" formmethod="POST">検索</button>
+      </form>
+    </p>
+    <p>
+      <form>
+        <input type="button" onclick="location.href='/all_data'" value="全データ参照" />
+        <input type="button" onclick="location.href='/insert'" value="データ追加" />
+      </form>
+    </p>
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th>単語</th>
+            <th>意味</th>
+            <th>編集</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in data %}
+          <tr>
+            <td>{{item[1]}}</td>
+            <td>{{item[2]}}</td>
+            <td>
+              <form action="/update" method="POST">
+                <input type="submit" value="かきかえ" />
+                <input type="hidden" name="in_id" value="{{item[0]}}" />
+              </form>
+              <form action="/delete" method="POST">
+                <input type="submit" value="さくじょ" />
+                <input type="hidden" name="in_id" value="{{item[0]}}" />
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

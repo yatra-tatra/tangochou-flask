@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="jp">
+  <head>
+    <meta charset="UTF-8">
+    <title>データ編集</title>
+    <link rel="stylesheet" href="/static/markdown7.css" type="text/css" />
+  </head>
+  <body>
+    <h2>データの編集</h2>
+    <p>
+      {% for item in data %}
+      <form action="/updated">
+        id
+        {{item[0]}}
+        <label>
+          単語
+          <input type="text" name="in_word" value="{{item[1]}}" />
+        </label>
+        <label>
+          意味
+          <input type="text" name="in_mean" value="{{item[2]}}" />
+        </label>
+        <label>
+          <input type="hidden" name="in_id" value="{{item[0]}}" />
+        </label>
+        <button type="submit" formmethod="POST">更新</button>
+      </form>
+      {% endfor %}
+    </p>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="jp">
+  <head>
+    <meta charset="UTF-8">
+    <title>データ削除</title>
+    <link rel="stylesheet" href="/static/markdown7.css" type="text/css" />
+  </head>
+  <body>
+    <h2>データの削除</h2>
+    <p>
+      {% for item in data %}
+      <form action="/deleted">
+        id：{{item[0]}}
+        単語：{{item[1]}}
+        意味：{{item[2]}}
+        <label>
+          <input type="hidden" name="in_id" value="{{item[0]}}" />
+        </label>
+        <button type="submit" formmethod="POST">削除</button>
+      </form>
+      {% endfor %}
+    </p>
+  </body>
+</html>

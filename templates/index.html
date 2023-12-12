@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="jp">
+  <head>
+    <meta charset="UTF-8">
+    <title>トップページ</title>
+    <link rel="stylesheet" href="/static/markdown7.css" type="text/css" />
+  </head>
+  <body>
+    <h2>検索</h2>
+    <p>
+      <form action='/search'>
+        <label>
+          単語
+          <input type="text" name="in_word" />
+        </label>
+        <label>
+          意味
+          <input type="text" name="in_mean" />
+        </label>
+        <button type="submit" formmethod="POST">検索</button>
+      </form>
+    </p>
+    <p>
+      <form>
+        <input type="button" onclick="location.href='/all_data'" value="全データ参照" />
+        <input type="button" onclick="location.href='/insert'" value="データ追加" />
+      </form>
+    </p>
+  </body>
+</html>
