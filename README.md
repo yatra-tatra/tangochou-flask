@@ -29,6 +29,7 @@
 下記の環境で動作を確認
 
 - Debian GNU/Linux 9 (Stretch), Python 3.5
+- Debian GNU/Linux 12 (Bookworm), Python 3.11
 - MacOS Monterey, Python 3.12
 - Windows 10, Python 3.11
 
