@@ -181,7 +181,7 @@ def deleted_post():
 
     # SQLを実行：削除処理
     sql = "DELETE FROM items WHERE id = ?"
-    cur.execute(sql, (in_id))
+    cur.execute(sql, (in_id,))
     con.commit()
 
     # データベースを閉じる
